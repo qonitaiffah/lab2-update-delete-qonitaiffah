@@ -22,7 +22,14 @@
     <h3>Daftar Employee:</h3>
     <ul>
     {% for e in employees %}
-        <li>{{ e.name }} - {{ e.position }} - Rp{{ e.salary }}</li>
+        <li>
+            {{ e.name }} - {{ e.position }} - Rp{{ e.salary }}
+            <a href="/employees/{{ e.id }}/edit"><button type="button">Update</button></a>
+            <form action="/employees/{{ e.id }}/delete" method="POST" style="display:inline;"
+                  onsubmit="return confirm('Yakin hapus {{ e.name }}?');">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
     {% endfor %}
     </ul>
 </body>
