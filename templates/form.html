@@ -1,0 +1,29 @@
+<!-- templates/form.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tambah Employee</title>
+</head>
+<body>
+    <h2>Tambah Employee Baru</h2>
+    <form action="/employees/new" method="POST">
+        <label>Nama:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Posisi:</label><br>
+        <input type="text" name="position"><br><br>
+
+        <label>Gaji:</label><br>
+        <input type="number" name="salary"><br><br>
+
+        <button type="submit">Simpan</button>
+    </form>
+
+    <h3>Daftar Employee:</h3>
+    <ul>
+    {% for e in employees %}
+        <li>{{ e.name }} - {{ e.position }} - Rp{{ e.salary }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
